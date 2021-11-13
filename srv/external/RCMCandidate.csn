@@ -1,0 +1,1104 @@
+{
+  "meta": {
+    "creator": "cds-dk 4.5.3"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "SFOData": {
+      "kind": "service",
+      "@cds.external": true
+    },
+    "SFOData.setSmsNotificationPreference": {
+      "kind": "action",
+      "params": {
+        "optIn": {
+          "type": "cds.Boolean"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "isoCountryCode": {
+          "type": "cds.LargeString"
+        },
+        "cellPhone": {
+          "type": "cds.LargeString"
+        }
+      },
+      "returns": {
+        "type": "cds.LargeString"
+      },
+      "doc": "Enable or disable SMS preference for Candidate\n\nUse Function Import to enable/disable SMS Notifications for candidate by providing Candidate Id, Phone Country Code and Cell Phone Number"
+    },
+    "SFOData.CandidateBackground_InsideWorkExperience": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "department": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "title": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateLight": {
+      "kind": "entity",
+      "elements": {
+        "candidateId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "address": {
+          "type": "cds.LargeString"
+        },
+        "address2": {
+          "type": "cds.LargeString"
+        },
+        "agreeToPrivacyStatement": {
+          "type": "cds.LargeString"
+        },
+        "anonymized": {
+          "type": "cds.LargeString"
+        },
+        "anonymizedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "candidateLocale": {
+          "type": "cds.LargeString"
+        },
+        "cellPhone": {
+          "type": "cds.LargeString"
+        },
+        "city": {
+          "type": "cds.LargeString"
+        },
+        "contactEmail": {
+          "type": "cds.LargeString"
+        },
+        "country": {
+          "type": "cds.LargeString"
+        },
+        "creationDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "currentTitle": {
+          "type": "cds.LargeString"
+        },
+        "dataPrivacyId": {
+          "type": "cds.Integer64"
+        },
+        "dateofAvailability": {
+          "type": "cds.Timestamp"
+        },
+        "externalCandidate": {
+          "type": "cds.Boolean"
+        },
+        "firstName": {
+          "type": "cds.LargeString"
+        },
+        "homePhone": {
+          "type": "cds.LargeString"
+        },
+        "lastLoginDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastName": {
+          "type": "cds.LargeString"
+        },
+        "middleName": {
+          "type": "cds.LargeString"
+        },
+        "partnerMemberId": {
+          "type": "cds.LargeString"
+        },
+        "partnerSource": {
+          "type": "cds.Integer64"
+        },
+        "password": {
+          "type": "cds.LargeString"
+        },
+        "primaryEmail": {
+          "type": "cds.LargeString"
+        },
+        "privacyAcceptDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "publicIntranet": {
+          "type": "cds.Boolean"
+        },
+        "shareProfile": {
+          "type": "cds.LargeString"
+        },
+        "usersSysId": {
+          "type": "cds.LargeString"
+        },
+        "visibilityOption": {
+          "type": "cds.Boolean"
+        },
+        "zip": {
+          "type": "cds.LargeString"
+        },
+        "candidateProfileExtension": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateProfileExtension",
+          "keys": []
+        },
+        "certificates": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Certificates",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "education": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Education",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "insideWorkExperience": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_InsideWorkExperience",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "languages": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Languages",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "outsideWorkExperience": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_OutsideWorkExperience",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "tags": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateTags",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "talentPool": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_TalentPool",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "talentPoolcorp": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_TalentPoolcorp",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateComments": {
+      "kind": "entity",
+      "elements": {
+        "commentId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "associatedCommentId": {
+          "type": "cds.Integer64"
+        },
+        "associatedId": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "commentator": {
+          "type": "cds.LargeString"
+        },
+        "content": {
+          "type": "cds.LargeString"
+        },
+        "hasAssociatedComment": {
+          "type": "cds.LargeString"
+        },
+        "migratedCommentatorUserName": {
+          "type": "cds.LargeString"
+        },
+        "refType": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateBackground_Education": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "degree": {
+          "type": "cds.LargeString"
+        },
+        "degreeDate": {
+          "type": "cds.Date"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "major": {
+          "type": "cds.LargeString"
+        },
+        "presentStudent": {
+          "type": "cds.Integer"
+        },
+        "school": {
+          "type": "cds.LargeString"
+        },
+        "schoolAddress": {
+          "type": "cds.LargeString"
+        },
+        "schoolCity": {
+          "type": "cds.LargeString"
+        },
+        "schoolCountry": {
+          "type": "cds.LargeString"
+        },
+        "schoolPhone": {
+          "type": "cds.LargeString"
+        },
+        "schoolState": {
+          "type": "cds.LargeString"
+        },
+        "schoolType": {
+          "type": "cds.LargeString"
+        },
+        "schoolZip": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.Candidate": {
+      "kind": "entity",
+      "elements": {
+        "candidateId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "address": {
+          "type": "cds.LargeString"
+        },
+        "address2": {
+          "type": "cds.LargeString"
+        },
+        "agreeToPrivacyStatement": {
+          "type": "cds.LargeString"
+        },
+        "anonymized": {
+          "type": "cds.LargeString"
+        },
+        "anonymizedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "candidateLocale": {
+          "type": "cds.LargeString"
+        },
+        "cellPhone": {
+          "type": "cds.LargeString"
+        },
+        "city": {
+          "type": "cds.LargeString"
+        },
+        "contactEmail": {
+          "type": "cds.LargeString"
+        },
+        "country": {
+          "type": "cds.LargeString"
+        },
+        "creationDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "currentTitle": {
+          "type": "cds.LargeString"
+        },
+        "dataPrivacyId": {
+          "type": "cds.Integer64"
+        },
+        "dateofAvailability": {
+          "type": "cds.Timestamp"
+        },
+        "externalCandidate": {
+          "type": "cds.Boolean"
+        },
+        "firstName": {
+          "type": "cds.LargeString"
+        },
+        "homePhone": {
+          "type": "cds.LargeString"
+        },
+        "lastLoginDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastName": {
+          "type": "cds.LargeString"
+        },
+        "middleName": {
+          "type": "cds.LargeString"
+        },
+        "partnerMemberId": {
+          "type": "cds.LargeString"
+        },
+        "partnerSource": {
+          "type": "cds.Integer64"
+        },
+        "password": {
+          "type": "cds.LargeString"
+        },
+        "primaryEmail": {
+          "type": "cds.LargeString"
+        },
+        "privacyAcceptDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "publicIntranet": {
+          "type": "cds.Boolean"
+        },
+        "shareProfile": {
+          "type": "cds.LargeString"
+        },
+        "usersSysId": {
+          "type": "cds.LargeString"
+        },
+        "visibilityOption": {
+          "type": "cds.Boolean"
+        },
+        "zip": {
+          "type": "cds.LargeString"
+        },
+        "candidateProfileExtension": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateProfileExtension",
+          "keys": []
+        },
+        "certificates": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Certificates",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "education": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Education",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "insideWorkExperience": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_InsideWorkExperience",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "languages": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_Languages",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "outsideWorkExperience": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_OutsideWorkExperience",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "tags": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateTags",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "talentPool": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_TalentPool",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        },
+        "talentPoolcorp": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.CandidateBackground_TalentPoolcorp",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_TalentPoolcorp": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "talentPoolComments": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolStatus": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolitemCorp": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_Education": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "degree": {
+          "type": "cds.LargeString"
+        },
+        "degreeDate": {
+          "type": "cds.Date"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "major": {
+          "type": "cds.LargeString"
+        },
+        "presentStudent": {
+          "type": "cds.Integer"
+        },
+        "school": {
+          "type": "cds.LargeString"
+        },
+        "schoolAddress": {
+          "type": "cds.LargeString"
+        },
+        "schoolCity": {
+          "type": "cds.LargeString"
+        },
+        "schoolCountry": {
+          "type": "cds.LargeString"
+        },
+        "schoolPhone": {
+          "type": "cds.LargeString"
+        },
+        "schoolState": {
+          "type": "cds.LargeString"
+        },
+        "schoolType": {
+          "type": "cds.LargeString"
+        },
+        "schoolZip": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_TalentPool": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "talentPoolComments": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolStatus": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolitem": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "SFOData.CandidateBackground_OutsideWorkExperience": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "businessType": {
+          "type": "cds.LargeString"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "employer": {
+          "type": "cds.LargeString"
+        },
+        "employerAddress": {
+          "type": "cds.LargeString"
+        },
+        "employerCity": {
+          "type": "cds.LargeString"
+        },
+        "employerContact": {
+          "type": "cds.LargeString"
+        },
+        "employerCountry": {
+          "type": "cds.LargeString"
+        },
+        "employerEmail": {
+          "type": "cds.LargeString"
+        },
+        "employerPhone": {
+          "type": "cds.LargeString"
+        },
+        "employerState": {
+          "type": "cds.LargeString"
+        },
+        "employerZip": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "presentEmployer": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "startTitle": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateBackground_Certificates": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "description": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "institution": {
+          "type": "cds.LargeString"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "licenseCountry": {
+          "type": "cds.LargeString"
+        },
+        "licenseName": {
+          "type": "cds.LargeString"
+        },
+        "licenseNumber": {
+          "type": "cds.LargeString"
+        },
+        "licenseState": {
+          "type": "cds.LargeString"
+        },
+        "licenseType": {
+          "type": "cds.LargeString"
+        },
+        "name": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateBackground_Languages": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "language": {
+          "type": "cds.LargeString"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "readingProf": {
+          "type": "cds.LargeString"
+        },
+        "speakingProf": {
+          "type": "cds.LargeString"
+        },
+        "writingProf": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_InsideWorkExperience": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "department": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "title": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_Certificates": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "description": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "institution": {
+          "type": "cds.LargeString"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "licenseCountry": {
+          "type": "cds.LargeString"
+        },
+        "licenseName": {
+          "type": "cds.LargeString"
+        },
+        "licenseNumber": {
+          "type": "cds.LargeString"
+        },
+        "licenseState": {
+          "type": "cds.LargeString"
+        },
+        "licenseType": {
+          "type": "cds.LargeString"
+        },
+        "name": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_OutsideWorkExperience": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "businessType": {
+          "type": "cds.LargeString"
+        },
+        "employer": {
+          "type": "cds.LargeString"
+        },
+        "employerAddress": {
+          "type": "cds.LargeString"
+        },
+        "employerCity": {
+          "type": "cds.LargeString"
+        },
+        "employerContact": {
+          "type": "cds.LargeString"
+        },
+        "employerCountry": {
+          "type": "cds.LargeString"
+        },
+        "employerEmail": {
+          "type": "cds.LargeString"
+        },
+        "employerPhone": {
+          "type": "cds.LargeString"
+        },
+        "employerState": {
+          "type": "cds.LargeString"
+        },
+        "employerZip": {
+          "type": "cds.LargeString"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "presentEmployer": {
+          "type": "cds.LargeString"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "startTitle": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "SFOData.JobApplicationSnapshot_Languages": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "applicationId": {
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "language": {
+          "type": "cds.LargeString"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "readingProf": {
+          "type": "cds.LargeString"
+        },
+        "speakingProf": {
+          "type": "cds.LargeString"
+        },
+        "writingProf": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "SFOData.CandidateBackground_TalentPool": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "talentPoolComments": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolStatus": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolitem": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateProfileExtension": {
+      "kind": "entity",
+      "elements": {
+        "candidateId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "mdfSystemRecordStatus": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    },
+    "SFOData.CandidateTags": {
+      "kind": "entity",
+      "elements": {
+        "tagId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "label": {
+          "type": "cds.LargeString"
+        },
+        "locale": {
+          "type": "cds.LargeString"
+        },
+        "candidates": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        }
+      }
+    },
+    "SFOData.CandidateBackground_TalentPoolcorp": {
+      "kind": "entity",
+      "elements": {
+        "backgroundElementId": {
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "bgOrderPos": {
+          "type": "cds.Integer64"
+        },
+        "candidateId": {
+          "type": "cds.Integer64"
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "talentPoolComments": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolStatus": {
+          "type": "cds.LargeString"
+        },
+        "talentPoolitemCorp": {
+          "type": "cds.LargeString"
+        },
+        "candidate": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "SFOData.Candidate",
+          "keys": []
+        }
+      }
+    }
+  }
+}
